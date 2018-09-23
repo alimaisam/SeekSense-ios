@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         NSLog("offense done")
         
         ref = Database.database().reference()
-        ref.child("offense").setValue(true)
+        ref.child("offense").setValue("flex")
         
         color = UIColor.red.cgColor
     }
@@ -43,14 +43,14 @@ class ViewController: UIViewController {
         NSLog("Verify Voice")
         
         ref = Database.database().reference()
-        ref.child("voice_verification").setValue(true)
+        ref.child("voice_verification").setValue("flex")
     }
     
     @IBAction func updateEarningPressed() {
         NSLog("Update Earning")
         
         ref = Database.database().reference()
-        ref.child("earning_value").setValue(true)
+        ref.child("earning_value").setValue("flex")
     }
     
     override func didReceiveMemoryWarning() {
