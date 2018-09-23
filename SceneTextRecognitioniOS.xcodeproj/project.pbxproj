@@ -23,6 +23,9 @@
 		DF4587BB21569E4600F26057 /* Potrait@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4587B821569E4600F26057 /* Potrait@3x.png */; };
 		DF4587BC21569E4600F26057 /* Potrait.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4587B921569E4600F26057 /* Potrait.png */; };
 		DF4587BE2156A96100F26057 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DF4587BD2156A96100F26057 /* Podfile */; };
+		DF6721D821573C5D00880BD3 /* VideoStream@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6721D521573C5C00880BD3 /* VideoStream@2x.png */; };
+		DF6721D921573C5D00880BD3 /* VideoStream@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6721D621573C5C00880BD3 /* VideoStream@3x.png */; };
+		DF6721DA21573C5D00880BD3 /* VideoStream.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6721D721573C5D00880BD3 /* VideoStream.png */; };
 		DF770B9F2156AC8D005B1536 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF770B9E2156AC8D005B1536 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		DF4587B821569E4600F26057 /* Potrait@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Potrait@3x.png"; sourceTree = "<group>"; };
 		DF4587B921569E4600F26057 /* Potrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Potrait.png; sourceTree = "<group>"; };
 		DF4587BD2156A96100F26057 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		DF6721D521573C5C00880BD3 /* VideoStream@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VideoStream@2x.png"; sourceTree = "<group>"; };
+		DF6721D621573C5C00880BD3 /* VideoStream@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VideoStream@3x.png"; sourceTree = "<group>"; };
+		DF6721D721573C5D00880BD3 /* VideoStream.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VideoStream.png; sourceTree = "<group>"; };
 		DF770B9E2156AC8D005B1536 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +108,9 @@
 				20A7BF8E1F3B255000854C42 /* Dummy.h */,
 				20A7BF8F1F3B255000854C42 /* Dummy.m */,
 				20A7BF8D1F3B254F00854C42 /* SceneTextRecognitioniOS-Bridging-Header.h */,
+				DF6721D721573C5D00880BD3 /* VideoStream.png */,
+				DF6721D521573C5C00880BD3 /* VideoStream@2x.png */,
+				DF6721D621573C5C00880BD3 /* VideoStream@3x.png */,
 				DF4587B921569E4600F26057 /* Potrait.png */,
 				DF4587B721569E4600F26057 /* Potrait@2x.png */,
 				DF4587B821569E4600F26057 /* Potrait@3x.png */,
@@ -195,9 +204,12 @@
 				DF770B9F2156AC8D005B1536 /* GoogleService-Info.plist in Resources */,
 				DF4587BE2156A96100F26057 /* Podfile in Resources */,
 				202486561F3AE20500CD12E6 /* Main.storyboard in Resources */,
+				DF6721DA21573C5D00880BD3 /* VideoStream.png in Resources */,
 				DF4587BA21569E4600F26057 /* Potrait@2x.png in Resources */,
+				DF6721D821573C5D00880BD3 /* VideoStream@2x.png in Resources */,
 				64E9ADE81F2A2436007BAC6F /* tessdata in Resources */,
 				DF4587BC21569E4600F26057 /* Potrait.png in Resources */,
+				DF6721D921573C5D00880BD3 /* VideoStream@3x.png in Resources */,
 				DF4587BB21569E4600F26057 /* Potrait@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

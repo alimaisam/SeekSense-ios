@@ -34,9 +34,10 @@ class ViewController: UIViewController {
         NSLog("offense done")
         
         ref = Database.database().reference()
-        ref.child("offense").setValue("flex")
+        ref.child("offense").setValue("$30")
         
-        color = UIColor.red.cgColor
+        self.view.layer.borderWidth = 5;
+        self.view.layer.borderColor = UIColor.red.cgColor;
     }
     
     @IBAction func verifyVoicePressed() {
@@ -112,8 +113,17 @@ class ViewController: UIViewController {
         DispatchQueue.main.async {
             
             self.cameraView.removeMask()
-            //let viewWidth = self.view.frame.size.width
-            //let viewHeight = self.view.frame.size.height
+//            guard let sublayers = self.view.layer.sublayers else {
+//                return
+//            }
+//            for layer in sublayers[1...] {
+//
+//                if let _ = layer as? CALayer {
+//                    layer.removeFromSuperlayer()
+//                }
+//            }
+//            let viewWidth = self.view.frame.size.width
+//            let viewHeight = self.view.frame.size.height
             for result in textResults {
 
                 if let textResult = result {

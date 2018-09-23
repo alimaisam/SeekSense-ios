@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Potrait.png" translatesAutoresizingMaskIntoConstraints="NO" id="gF3-nD-GMD">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VideoStream.png" translatesAutoresizingMaskIntoConstraints="NO" id="u8G-KA-lEJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -25,21 +25,21 @@
                                 <rect key="frame" x="288" y="585" width="87" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="updateEarningPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ff4-uh-BfL"/>
+                                    <action selector="updateEarningPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="k7C-gF-dyp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRK-Qa-HNV">
                                 <rect key="frame" x="148" y="585" width="79" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="verifyVoicePressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="09P-SH-Jzo"/>
+                                    <action selector="verifyVoicePressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9D-db-Cna"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ik9-KH-jWV">
                                 <rect key="frame" x="0.0" y="585" width="114" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="offenseDonePressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="q87-l9-isl"/>
+                                    <action selector="offenseDonePressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="XxH-5s-DaT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -49,10 +49,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+            <point key="canvasLocation" x="135.19999999999999" y="131.78410794602701"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Potrait.png" width="375" height="667"/>
+        <image name="VideoStream.png" width="375" height="812"/>
     </resources>
 </document>
