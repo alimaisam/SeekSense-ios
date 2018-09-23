@@ -9,130 +9,160 @@
 import AVFoundation
 import UIKit
 import Vision
+import Firebase
+
+var color = UIColor.green.cgColor
+var ref: DatabaseReference!
 
 class ViewController: UIViewController {
-
-override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-    tesseract?.pageSegmentationMode = .sparseText
-    // Recognize only these characters
-    tesseract?.charWhitelist = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890()-+*!/?.,@#$%&"
-    if isAuthorized() {
-        configureTextDetection()
-        configureCamera()
-    }
-}
-
-override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-}
-private func configureTextDetection() {
-    textDetectionRequest = VNDetectTextRectanglesRequest(completionHandler: handleDetection)
-    textDetectionRequest?.reportCharacterBoxes = true
-}
-private func configureCamera() {
-    cameraView.session = session
     
-    let cameraDevices = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)
-    var cameraDevice: AVCaptureDevice?
-    for device in cameraDevices.devices {
-        if device.position == .back {
-            cameraDevice = device
-            break
+    //@IBOutlet weak var cameraView: CameraView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        tesseract?.pageSegmentationMode = .sparseText
+        // Recognize only these characters
+        tesseract?.charWhitelist = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890()-+*!/?.,@#$%&"
+        if isAuthorized() {
+            configureTextDetection()
+            configureCamera()
         }
     }
-    do {
-        let captureDeviceInput = try AVCaptureDeviceInput(device: cameraDevice!)
-        if session.canAddInput(captureDeviceInput) {
-            session.addInput(captureDeviceInput)
-        }
-    }
-    catch {
-        print("Error occured \(error)")
-        return
-    }
-    session.sessionPreset = .high
-    let videoDataOutput = AVCaptureVideoDataOutput()
-    videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "Buffer Queue", qos: .userInteractive, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil))
-    if session.canAddOutput(videoDataOutput) {
-        session.addOutput(videoDataOutput)
-    }
-    cameraView.videoPreviewLayer.videoGravity = .resize
-    session.startRunning()
-}
-private func handleDetection(request: VNRequest, error: Error?) {
     
-    guard let detectionResults = request.results else {
-        print("No detection results")
-        return
-    }
-    let textResults = detectionResults.map() {
-        return $0 as? VNTextObservation
-    }
-    if textResults.isEmpty {
-        return
-    }
-    textObservations = textResults as! [VNTextObservation]
-    DispatchQueue.main.async {
+    @IBAction func offenseDonePressed() {
+        NSLog("offense done")
         
-        guard let sublayers = self.view.layer.sublayers else {
+        ref = Database.database().reference()
+        ref.child("offense").setValue(true)
+        
+        color = UIColor.red.cgColor
+    }
+    
+    @IBAction func verifyVoicePressed() {
+        NSLog("Verify Voice")
+        
+        ref = Database.database().reference()
+        ref.child("voice_verification").setValue(true)
+    }
+    
+    @IBAction func updateEarningPressed() {
+        NSLog("Update Earning")
+        
+        ref = Database.database().reference()
+        ref.child("earning_value").setValue(true)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    private func configureTextDetection() {
+        textDetectionRequest = VNDetectTextRectanglesRequest(completionHandler: handleDetection)
+        textDetectionRequest?.reportCharacterBoxes = true
+    }
+    
+    private func configureCamera() {
+        cameraView.session = session
+
+        let cameraDevices = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)
+        var cameraDevice: AVCaptureDevice?
+        for device in cameraDevices.devices {
+            if device.position == .back {
+                cameraDevice = device
+                break
+            }
+        }
+        do {
+            let captureDeviceInput = try AVCaptureDeviceInput(device: cameraDevice!)
+            if session.canAddInput(captureDeviceInput) {
+                session.addInput(captureDeviceInput)
+            }
+        }
+        catch {
+            print("Error occured \(error)")
             return
         }
-        for layer in sublayers[1...] {
-            if (layer as? CATextLayer) == nil {
-                layer.removeFromSuperlayer()
-            }
+        session.sessionPreset = .high
+        let videoDataOutput = AVCaptureVideoDataOutput()
+        videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "Buffer Queue", qos: .userInteractive, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil))
+        if session.canAddOutput(videoDataOutput) {
+            session.addOutput(videoDataOutput)
         }
-        let viewWidth = self.view.frame.size.width
-        let viewHeight = self.view.frame.size.height
-        for result in textResults {
+        cameraView.videoPreviewLayer.videoGravity = .resize
+        session.startRunning()
+    }
+    
+    private func configureOverlay() {
+        
+    }
+    private func handleDetection(request: VNRequest, error: Error?) {
+        
+        guard let detectionResults = request.results else {
+            print("No detection results")
+            return
+        }
+        let textResults = detectionResults.map() {
+            return $0 as? VNTextObservation
+        }
+        if textResults.isEmpty {
+            return
+        }
+        textObservations = textResults as! [VNTextObservation]
+        DispatchQueue.main.async {
+            
+            self.cameraView.removeMask()
+            //let viewWidth = self.view.frame.size.width
+            //let viewHeight = self.view.frame.size.height
+            for result in textResults {
 
-            if let textResult = result {
-                
-                let layer = CALayer()
-                var rect = textResult.boundingBox
-                rect.origin.x *= viewWidth
-                rect.size.height *= viewHeight
-                rect.origin.y = ((1 - rect.origin.y) * viewHeight) - rect.size.height
-                rect.size.width *= viewWidth
-
-                layer.frame = rect
-                layer.borderWidth = 2
-                layer.borderColor = UIColor.red.cgColor
-                self.view.layer.addSublayer(layer)
+                if let textResult = result {
+                    
+                    self.cameraView.drawTextRectangle(textRext: textResult, withColor: color)
+//                    let lView = CALayer()
+//                    var rect = textResult.boundingBox
+//                    rect.origin.x *= viewWidth
+//                    rect.size.height *= viewHeight
+//                    rect.origin.y = ((1 - rect.origin.y) * viewHeight) - rect.size.height
+//                    rect.size.width *= viewWidth
+//
+//                    lView.frame = rect
+//                    lView.borderWidth = 2
+//                    lView.borderColor = UIColor.green.cgColor
+//                    self.view.layer.addSublayer(lView)
+                    //self.view.sendSubview(toBack: lView)
+                }
             }
         }
     }
-}
-private var cameraView: CameraView {
-    return view as! CameraView
-}
-private func isAuthorized() -> Bool {
-    let authorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
-    switch authorizationStatus {
-    case .notDetermined:
-        AVCaptureDevice.requestAccess(for: AVMediaType.video,
-                                      completionHandler: { (granted:Bool) -> Void in
-                                        if granted {
-                                            DispatchQueue.main.async {
-                                                self.configureTextDetection()
-                                                self.configureCamera()
+    
+    private var cameraView: CameraView {
+        return view as! CameraView
+    }
+    private func isAuthorized() -> Bool {
+        let authorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+        switch authorizationStatus {
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: AVMediaType.video,
+                                          completionHandler: { (granted:Bool) -> Void in
+                                            if granted {
+                                                DispatchQueue.main.async {
+                                                    self.configureTextDetection()
+                                                    self.configureCamera()
+                                                }
                                             }
-                                        }
-        })
-        return true
-    case .authorized:
-        return true
-    case .denied, .restricted: return false
+            })
+            return true
+        case .authorized:
+            return true
+        case .denied, .restricted: return false
+        }
     }
-}
-private var textDetectionRequest: VNDetectTextRectanglesRequest?
-private let session = AVCaptureSession()
-private var textObservations = [VNTextObservation]()
-private var tesseract = G8Tesseract(language: "eng", engineMode: .tesseractOnly)
-private var font = CTFontCreateWithName("Helvetica" as CFString, 18, nil)
+    private var textDetectionRequest: VNDetectTextRectanglesRequest?
+    private let session = AVCaptureSession()
+    private var textObservations = [VNTextObservation]()
+    private var tesseract = G8Tesseract(language: "eng", engineMode: .tesseractOnly)
+    private var font = CTFontCreateWithName("Helvetica" as CFString, 18, nil)
 }
 
 extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -152,6 +182,7 @@ func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBu
     catch {
         print("Error occured \(error)")
     }
+    
     var ciImage = CIImage(cvPixelBuffer: pixelBuffer)
     let transform = ciImage.orientationTransform(for: CGImagePropertyOrientation(rawValue: 6)!)
     ciImage = ciImage.transformed(by: transform)
@@ -194,36 +225,36 @@ func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBu
     }
     textObservations.removeAll()
     DispatchQueue.main.async {
-        let viewWidth = self.view.frame.size.width
-        let viewHeight = self.view.frame.size.height
-        guard let sublayers = self.view.layer.sublayers else {
-            return
-        }
-        for layer in sublayers[1...] {
-            
-            if let _ = layer as? CATextLayer {
-                layer.removeFromSuperlayer()
-            }
-        }
+//        guard let sublayers = self.view.layer.sublayers else {
+//            return
+//        }
+//        for layer in sublayers[1...] {
+//
+//            if let _ = layer as? CATextLayer {
+//                layer.removeFromSuperlayer()
+//            }
+//        }
         for tuple in recognizedTextPositionTuples {
-            let textLayer = CATextLayer()
-            textLayer.backgroundColor = UIColor.clear.cgColor
-            textLayer.font = self.font
-            var rect = tuple.rect
-
-            rect.origin.x *= viewWidth
-            rect.size.width *= viewWidth
-            rect.origin.y *= viewHeight
-            rect.size.height *= viewHeight
-            
-            // Increase the size of text layer to show text of large lengths
-            rect.size.width += 100
-            rect.size.height += 100
-
-            textLayer.frame = rect
-            textLayer.string = tuple.text
-            textLayer.foregroundColor = UIColor.green.cgColor
-            self.view.layer.addSublayer(textLayer)
+            NSLog("%@", tuple.text)
+//            let textLayer = CATextLayer()
+//            textLayer.backgroundColor = UIColor.clear.cgColor
+//            textLayer.font = self.font
+//            var rect = tuple.rect
+//
+//            rect.origin.x *= viewWidth
+//            rect.size.width *= viewWidth
+//            rect.origin.y *= viewHeight
+//            rect.size.height *= viewHeight
+//
+//            // Increase the size of text layer to show text of large lengths
+//            rect.size.width += 100
+//            rect.size.height += 100
+//
+//            textLayer.frame = rect
+//            textLayer.string = tuple.text
+//            textLayer.foregroundColor = UIColor.green.cgColor
+//            self.view.layer.addSublayer(textLayer)
+            //NSLog("%@", tuple.text)
         }
     }
 }

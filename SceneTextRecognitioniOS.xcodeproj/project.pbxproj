@@ -17,7 +17,13 @@
 		20A7BF891F3AE91200854C42 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A7BF881F3AE91200854C42 /* Preview.swift */; };
 		20A7BF901F3B255000854C42 /* Dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A7BF8F1F3B255000854C42 /* Dummy.m */; };
 		20A7BF911F3B257100854C42 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A7BF8C1F3B250A00854C42 /* TesseractOCR.framework */; };
+		581102C00C980F00CB1636AC /* Pods_SceneTextRecognitioniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62B03D1AB7337CC0284592CD /* Pods_SceneTextRecognitioniOS.framework */; };
 		64E9ADE81F2A2436007BAC6F /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 64E9ADE71F2A2436007BAC6F /* tessdata */; };
+		DF4587BA21569E4600F26057 /* Potrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4587B721569E4600F26057 /* Potrait@2x.png */; };
+		DF4587BB21569E4600F26057 /* Potrait@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4587B821569E4600F26057 /* Potrait@3x.png */; };
+		DF4587BC21569E4600F26057 /* Potrait.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4587B921569E4600F26057 /* Potrait.png */; };
+		DF4587BE2156A96100F26057 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DF4587BD2156A96100F26057 /* Podfile */; };
+		DF770B9F2156AC8D005B1536 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF770B9E2156AC8D005B1536 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +41,15 @@
 		20A7BF8F1F3B255000854C42 /* Dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dummy.m; sourceTree = "<group>"; };
 		20A7BF921F3B259100854C42 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		20A7BF931F3B259800854C42 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		2BCBFB3FB5985869E1516B92 /* Pods-SceneTextRecognitioniOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SceneTextRecognitioniOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SceneTextRecognitioniOS/Pods-SceneTextRecognitioniOS.release.xcconfig"; sourceTree = "<group>"; };
+		62B03D1AB7337CC0284592CD /* Pods_SceneTextRecognitioniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SceneTextRecognitioniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E9ADE71F2A2436007BAC6F /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		69084FBDF7C19E1E31AA3282 /* Pods-SceneTextRecognitioniOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SceneTextRecognitioniOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SceneTextRecognitioniOS/Pods-SceneTextRecognitioniOS.debug.xcconfig"; sourceTree = "<group>"; };
+		DF4587B721569E4600F26057 /* Potrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Potrait@2x.png"; sourceTree = "<group>"; };
+		DF4587B821569E4600F26057 /* Potrait@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Potrait@3x.png"; sourceTree = "<group>"; };
+		DF4587B921569E4600F26057 /* Potrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Potrait.png; sourceTree = "<group>"; };
+		DF4587BD2156A96100F26057 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		DF770B9E2156AC8D005B1536 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +60,7 @@
 				20A7BF911F3B257100854C42 /* TesseractOCR.framework in Frameworks */,
 				204D7D111F3C327000209923 /* CoreImage.framework in Frameworks */,
 				204D7D101F3C326800209923 /* libstdc++.6.0.9.tbd in Frameworks */,
+				581102C00C980F00CB1636AC /* Pods_SceneTextRecognitioniOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,10 +70,12 @@
 		202486441F3AE20500CD12E6 = {
 			isa = PBXGroup;
 			children = (
+				DF4587BD2156A96100F26057 /* Podfile */,
 				20A7BF8C1F3B250A00854C42 /* TesseractOCR.framework */,
 				2024864F1F3AE20500CD12E6 /* SceneTextRecognitioniOS */,
 				2024864E1F3AE20500CD12E6 /* Products */,
 				20A7BF8A1F3B243800854C42 /* Frameworks */,
+				EE85F888F9F06C453D22E224 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,14 +93,18 @@
 				64E9ADE71F2A2436007BAC6F /* tessdata */,
 				202486501F3AE20500CD12E6 /* AppDelegate.swift */,
 				202486521F3AE20500CD12E6 /* ViewController.swift */,
+				20A7BF881F3AE91200854C42 /* Preview.swift */,
 				202486541F3AE20500CD12E6 /* Main.storyboard */,
 				202486571F3AE20500CD12E6 /* Assets.xcassets */,
 				202486591F3AE20500CD12E6 /* LaunchScreen.storyboard */,
 				2024865C1F3AE20500CD12E6 /* Info.plist */,
-				20A7BF881F3AE91200854C42 /* Preview.swift */,
+				DF770B9E2156AC8D005B1536 /* GoogleService-Info.plist */,
 				20A7BF8E1F3B255000854C42 /* Dummy.h */,
 				20A7BF8F1F3B255000854C42 /* Dummy.m */,
 				20A7BF8D1F3B254F00854C42 /* SceneTextRecognitioniOS-Bridging-Header.h */,
+				DF4587B921569E4600F26057 /* Potrait.png */,
+				DF4587B721569E4600F26057 /* Potrait@2x.png */,
+				DF4587B821569E4600F26057 /* Potrait@3x.png */,
 			);
 			path = SceneTextRecognitioniOS;
 			sourceTree = "<group>";
@@ -93,8 +114,18 @@
 			children = (
 				20A7BF931F3B259800854C42 /* CoreImage.framework */,
 				20A7BF921F3B259100854C42 /* libstdc++.6.0.9.tbd */,
+				62B03D1AB7337CC0284592CD /* Pods_SceneTextRecognitioniOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE85F888F9F06C453D22E224 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				69084FBDF7C19E1E31AA3282 /* Pods-SceneTextRecognitioniOS.debug.xcconfig */,
+				2BCBFB3FB5985869E1516B92 /* Pods-SceneTextRecognitioniOS.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,9 +135,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2024865F1F3AE20500CD12E6 /* Build configuration list for PBXNativeTarget "SceneTextRecognitioniOS" */;
 			buildPhases = (
+				938CBFBFFE50C864A26D344B /* [CP] Check Pods Manifest.lock */,
 				202486491F3AE20500CD12E6 /* Sources */,
 				2024864A1F3AE20500CD12E6 /* Frameworks */,
 				2024864B1F3AE20500CD12E6 /* Resources */,
+				9EC326C36766F49452176429 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,7 +163,7 @@
 					2024864C1F3AE20500CD12E6 = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -159,12 +192,60 @@
 			files = (
 				2024865B1F3AE20500CD12E6 /* LaunchScreen.storyboard in Resources */,
 				202486581F3AE20500CD12E6 /* Assets.xcassets in Resources */,
+				DF770B9F2156AC8D005B1536 /* GoogleService-Info.plist in Resources */,
+				DF4587BE2156A96100F26057 /* Podfile in Resources */,
 				202486561F3AE20500CD12E6 /* Main.storyboard in Resources */,
+				DF4587BA21569E4600F26057 /* Potrait@2x.png in Resources */,
 				64E9ADE81F2A2436007BAC6F /* tessdata in Resources */,
+				DF4587BC21569E4600F26057 /* Potrait.png in Resources */,
+				DF4587BB21569E4600F26057 /* Potrait@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		938CBFBFFE50C864A26D344B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SceneTextRecognitioniOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9EC326C36766F49452176429 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SceneTextRecognitioniOS/Pods-SceneTextRecognitioniOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SceneTextRecognitioniOS/Pods-SceneTextRecognitioniOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		202486491F3AE20500CD12E6 /* Sources */ = {
@@ -309,12 +390,13 @@
 		};
 		202486601F3AE20500CD12E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69084FBDF7C19E1E31AA3282 /* Pods-SceneTextRecognitioniOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 45CJUSJ4FS;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -322,8 +404,11 @@
 				);
 				INFOPLIST_FILE = SceneTextRecognitioniOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-lstdc++";
-				PRODUCT_BUNDLE_IDENTIFIER = io.devcrew.SceneTextRecognitioniOS;
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Seekasia.SceneTextRecognitioniOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SceneTextRecognitioniOS/SceneTextRecognitioniOS-Bridging-Header.h";
@@ -335,12 +420,13 @@
 		};
 		202486611F3AE20500CD12E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BCBFB3FB5985869E1516B92 /* Pods-SceneTextRecognitioniOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 45CJUSJ4FS;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -348,8 +434,11 @@
 				);
 				INFOPLIST_FILE = SceneTextRecognitioniOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-lstdc++";
-				PRODUCT_BUNDLE_IDENTIFIER = io.devcrew.SceneTextRecognitioniOS;
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Seekasia.SceneTextRecognitioniOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SceneTextRecognitioniOS/SceneTextRecognitioniOS-Bridging-Header.h";
